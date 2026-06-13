@@ -890,6 +890,20 @@ elif st.session_state.page == "rekomendasi":
         # --- Eval cards (tidak berubah) ---
         e1, e2, e3, e4, e5 = st.columns(5)
         # ... (kode eval_cards tetap sama) ...
+        eval_cards = [
+        ("Bobot CF (α)",    f"{bobot_cf:.2f}",                 "Collaborative Filtering"),
+        ("Bobot CBF (1-α)", f"{bobot_cbf:.2f}",                "Content-Based Filtering"),
+        ("Hotel Dirating",  str(num_rated),                     "oleh user ini"),
+        ("MAE (LOOCV)",     f"{mae:.4f}"  if mae  else "N/A",  "Mean Absolute Error"),
+        ("RMSE (LOOCV)",    f"{rmse:.4f}" if rmse else "N/A",  "Root Mean Square Error"),]
+        for col, (label, value, note) in zip([e1, e2, e3, e4, e5], eval_cards):
+            with col:
+                st.markdown(f"""
+                <div class="eval-card">
+                    <div class="eval-label">{label}</div>
+                    <div class="eval-value">{value}</div>
+                    <div class="eval-note">{note}</div>
+                </div>""", unsafe_allow_html=True)
 
         st.markdown("<div style='height:28px'></div>", unsafe_allow_html=True)
 
