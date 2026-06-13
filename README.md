@@ -1,0 +1,2 @@
+# SistemRekomendasi_Hotel_Hybrid_DynamicWeighting
+Program Sistem Rekomendasi Hotel menggunakan metode Hybrid Pembobotan Dinamis
